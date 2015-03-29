@@ -20,13 +20,19 @@ class Module
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
 
+        // listens "dispatch" = MvcEvent::EVENT_DISPATCH
+        // context this
+        // handler (callback) onDispatch()
+        // priority 100
+        // obs.: executa metodo onDispatch da classe definida, no caso $this
+        // trigger está sendo executada em AbstractController
         $eventManager->attach(MvcEvent::EVENT_DISPATCH, array($this, 'onDispatch'), 100);
     }
 
     public function onDispatch(MvcEvent $e)
     {
-        $view = $e->getViewModel();
-        $view->setVariable('categories', 'CATEGORY LIST');
+        $vm = $e->getViewModel();
+        $vm->setVariable('categories', 'CATEGORY LIST');
     }
 
     public function getConfig()
