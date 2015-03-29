@@ -53,6 +53,26 @@ return array(
         ),
     ),
     'service_manager' => array(
+        'services' => array(
+            'categories' => array(
+                'barter',
+                'beauty',
+                'clothing',
+                'computer',
+                'entertainment',
+                'free',
+                'garden',
+                'general',
+                'health',
+                'household',
+                'phones',
+                'property',
+                'sporting',
+                'tools',
+                'transportation',
+                'wanted'
+            )
+        ),
         'invokables' => array(
             'Application\Service\ExemploService' => 'Application\Service\ExemploService',
         ),
