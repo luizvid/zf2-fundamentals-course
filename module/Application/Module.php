@@ -35,6 +35,15 @@ class Module
         $vm->setVariable('categories', 'CATEGORY LIST');
     }
 
+    public function getServiceConfig()
+    {
+        return array(
+            'invokables' => array(
+                'SampleService' => 'Application\Service\SampleService'
+            )
+        );
+    }
+
     public function getConfig()
     {
         return include __DIR__ . '/config/module.config.php';

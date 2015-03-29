@@ -53,6 +53,9 @@ return array(
         ),
     ),
     'service_manager' => array(
+        'invokables' => array(
+            'Application\Service\ExemploService' => 'Application\Service\ExemploService',
+        ),
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
             'Zend\Log\LoggerAbstractServiceFactory',
