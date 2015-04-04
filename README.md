@@ -22,8 +22,21 @@ Ministrado pela [Code.Education]
 - Método onDispatch criado, recebe MvcEvent e seta variável 'caterories' para ViewModel
 - layout.phtml configurado para exibir em colunas variável 'categories'.
 
-###Módulo 4 Ex.
+###Módulo 4 Ex.1
 ------------
 - servico 'categories' implementado no service_manager de module.config.php -> Application com array lista de categorias.
 - servico 'categories' chamado no método onDispatch de Application -> Module.php e passado ao ViewModel().
 - layout.phtml configurado utilizando ViewHelper htmlList para listar array de categorias.
+
+###Módulo 5 Ex.1
+------------
+######Item A
+- instalado módulo ZendSkeletonModule-master como base para módulo Market.
+- pastas e arquivos renomeados de acordo instruções para Market.
+- autoload_classmap.php regenerado através do classmap_generator.php
+
+######Item B
+- criado novo módulo chamado Search.
+
+######Item C
+- instalado ZendDeveloperTools

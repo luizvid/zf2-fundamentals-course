@@ -11,9 +11,15 @@ namespace Application;
 
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Zend\ModuleManager\ModuleManager;
 
 class Module
 {
+    public function init(ModuleManager $mm)
+    {
+        //print_r($mm->getLoadedModules());
+    }
+
     public function onBootstrap(MvcEvent $e)
     {
         $eventManager        = $e->getApplication()->getEventManager();
