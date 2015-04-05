@@ -1,3 +1,9 @@
-<strong>Module:</strong>        Market &raquo;
-<strong>Controller:</strong>    Index &raquo;
-<strong>Action:</strong>        index
+<h1>Index Market</h1>
+<?php if(isset($this->messages)): ?>
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <?php echo $this->htmlList($this->messages, false, array('class' => 'text-warning')); ?>
+    </div>
+<?php endif; ?>

@@ -40,3 +40,23 @@ Ministrado pela [Code.Education]
 
 ######Item C
 - instalado ZendDeveloperTools
+
+###Módulo 6 Ex.1
+------------
+######Item A
+- Criado novo controller ViewController com método indexAction que retorna ViewModel.
+
+
+######Item B
+- Criado novo controller PostController com métodos setCategories que recebe array $categories e indexAction que retorna ViewModel;
+- Criado factory PostControllerFactory com método createService injetando serviço categories no Controller Post.
+
+######Item C
+- Resgatar através do plugin params()->fromQuery() categories no indexAction da ViewController;
+- Criado nova action itemAction na ViewController;
+- Resgatar através do plugin params()->fromQuery() itemId no itemAction do ViewController;
+- Adicionado redirect 'plugin redirect()' para rota 'market' em itemAction, caso itemId for vazio.
+- FlashMessenger utilizado quando itemId estiver vazio.
+
+######Item D
+- Add controller alias 'alt' para market-view-controller

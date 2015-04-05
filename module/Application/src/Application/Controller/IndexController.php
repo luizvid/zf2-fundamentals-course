@@ -25,6 +25,7 @@ class IndexController extends AbstractActionController
         //print_r($exemploService);
         //print_r($sampleService);
         //die;
+        //print_r(get_class_methods($e = $this->getEvent()));
         return new ViewModel();
     }
 

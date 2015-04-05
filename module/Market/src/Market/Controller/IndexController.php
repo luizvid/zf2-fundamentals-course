@@ -10,18 +10,27 @@
 namespace Market\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return array();
+        $return = array();
+
+        $flashMessenger = $this->flashMessenger();
+
+        if($flashMessenger->hasMessages()) {
+            $return['messages'] = $flashMessenger->getMessages();
+        }
+
+        return new ViewModel($return);
     }
 
     public function fooAction()
     {
         // This shows the :controller and :action parameters in default route
         // are working when you browse to /module-specific-root/skeleton/foo
-        return array();
+        return new ViewModel();
     }
 }
