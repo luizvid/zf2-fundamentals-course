@@ -52,11 +52,30 @@ Ministrado pela [Code.Education]
 - Criado factory PostControllerFactory com método createService injetando serviço categories no Controller Post.
 
 ######Item C
-- Resgatar através do plugin params()->fromQuery() categories no indexAction da ViewController;
+- Resgatado através do plugin params()->fromQuery() categories no indexAction da ViewController;
 - Criado nova action itemAction na ViewController;
-- Resgatar através do plugin params()->fromQuery() itemId no itemAction do ViewController;
+- Resgatado através do plugin params()->fromQuery() itemId no itemAction do ViewController;
 - Adicionado redirect 'plugin redirect()' para rota 'market' em itemAction, caso itemId for vazio.
 - FlashMessenger utilizado quando itemId estiver vazio.
 
 ######Item D
 - Add controller alias 'alt' para market-view-controller
+
+###Módulo 7 Ex.1
+------------
+######Item A
+- Adicionada rota '/' (homee) no módulo market, que sobrescreve do Application.
+
+######Item B
+- Adicionada rota '/market/view' (market-view) no módulo Market.
+- Rota '/market' (market) dessabilitada.
+
+######Item C
+- Adicionada rota '/market/post' (market-post) em Market.
+
+######Item D
+- Adicionadas rotas filhas para '/market/view' '/main[/:category]' e '/item[/:itemId]'(main/item) em Market.
+- Alterada captuda de parametros no View Controller de fromQuery para fromRoute();
+
+######Item E
+- Normalizando rotas.

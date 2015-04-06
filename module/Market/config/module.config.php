@@ -17,6 +17,114 @@ return array(
             'market' => array(
                 'type'    => 'Literal',
                 'options' => array(
+                    'route'    => '/market',
+                    'defaults' => array(
+                        'controller'    => 'market-index-controller',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'index' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                        ),
+                    ),
+                    'view' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                        ),
+                    ),
+                    'post' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/[:action]',
+                            'constraints' => array(
+                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            /*'home' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/',
+                    'defaults' => array(
+                        'controller'    => 'market-index-controller',
+                        'action'        => 'index',
+                    ),
+                ),
+            ),
+            'market-view' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/market/view',
+                    'defaults' => array(
+                        'controller'    => 'market-view-controller',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'slash' => array(
+                        'type'    => 'Literal',
+                        'options' => array(
+                            'route'    => '/',
+                            'defaults' => array(
+                                'controller'    => 'market-view-controller',
+                                'action'        => 'index',
+                            ),
+                        ),
+                    ),
+                    'index' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/main[/:category]',
+                        ),
+                    ),
+                    'item' => array(
+                        'type' => 'Segment',
+                        'options' => array(
+                            'route' => '/item[/:itemId]',
+                        ),
+                    ),
+                ),
+            ),
+            'market-post' => array(
+                'type'    => 'Literal',
+                'options' => array(
+                    'route'    => '/market/post',
+                    'defaults' => array(
+                        'controller'    => 'market-post-controller',
+                        'action'        => 'index',
+                    ),
+                ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'slash' => array(
+                        'type'    => 'Literal',
+                        'options' => array(
+                            'route'    => '/',
+                            'defaults' => array(
+                                'controller'    => 'market-post-controller',
+                                'action'        => 'index',
+                            ),
+                        ),
+                    ),
+                ),
+            ),
+            /*'market' => array(
+                'type'    => 'Literal',
+                'options' => array(
                     // Change this to something specific to your module
                     'route'    => '/market',
                     'defaults' => array(
@@ -46,7 +154,7 @@ return array(
                         ),
                     ),
                 ),
-            ),
+            ),*/
         ),
     ),
     'view_manager' => array(
