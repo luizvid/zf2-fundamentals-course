@@ -79,3 +79,17 @@ Ministrado pela [Code.Education]
 
 ######Item E
 - Normalizando rotas.
+
+###Módulo 8 Ex.1
+------------
+######Item A
+- Alterada forma de retorno do indexAction no IndexController de Market para retorna um ViewModel.
+
+######Item B
+- Criada novo template invalid.phtml under market/post e setado no indexAction do PostController
+
+######Item C
+- HTML escapado usando view helper $this->escapeHtml() em view/index.phtml para variavel category;
+
+######Item D
+- Criada view helper `leftLinks` que linka a lista de categorias no layout principal.
