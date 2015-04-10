@@ -93,3 +93,10 @@ Ministrado pela [Code.Education]
 
 ######Item D
 - Criada view helper `leftLinks` que linka a lista de categorias no layout principal.
+
+###Módulo 9 Ex.1
+------------
+- Criada tabela listings
+
+######Item A
+- Criada tabela listings
