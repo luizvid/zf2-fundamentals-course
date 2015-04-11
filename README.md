@@ -99,4 +99,9 @@ Ministrado pela [Code.Education]
 - Criada tabela listings
 
 ######Item A
-- Criada tabela listings
+- Criada classe PostForm com campos da tabela listings
+- Injeção de categories através de PostFormFactory
+- Injeção de postForm ao PostController através da PostControllerFactory
+
+#####Item B
+-
