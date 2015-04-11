@@ -13,7 +13,7 @@ use Zend\Form\Element;
 
 class PostForm extends Form
 {
-    public $categories;
+    private $categories;
 
     public function setCategories($categories)
     {
@@ -22,59 +22,25 @@ class PostForm extends Form
 
     public function buildForm()
     {
+        $this->setAttribute('method', 'post');
+
         $category = new Element\Select('category');
-        $category->setLabel('Categoria')
-            ->setValueOptions($this->categories);
+        $category->setLabel('Categoria');
+        $category->setValueOptions(array_combine($this->categories, $this->categories));
+        $category->setAttribute('class', 'form-control');
 
         $title = new Element\Text('title');
         $title->setLabel('Título');
-        $title->setAttributes(array(
-            'maxlength' => 128
-        ));
-
-        $description = new Element('description');
-        $description->setAttribute('type', 'textarea');
-        $description->setLabel('Descrição');
-
-        $photoFilename = new Element\File('photo_filename');
-        $photoFilename->setAttribute('type', 'file');
-        $photoFilename->setLabel('Foto');
-
-        $contactName = new Element('contact_name');
-        $contactName->setAttribute('type', 'text');
-        $contactName->setLabel('Nome completo');
-
-        $contactEmail = new Element\Email('contact_email');
-        $contactEmail->setAttribute('type', 'email');
-        $contactEmail->setLabel('E-mail');
-
-        $contactPhone = new Element('contact_phone');
-        $contactPhone->setAttribute('type', 'text');
-        $contactPhone->setLabel('Telefone');
-
-        $city = new Element('city');
-        $city->setAttribute('type', 'text');
-        $city->setLabel('Cidade');
-
-        $country = new Element('country');
-        $country->setAttributes(array('type' => 'text', 'maxlength' => 2));
-        $country->setLabel('País');
+        $title->setAttributes(array('maxlength' => 128, 'class' => 'form-control'));
 
         $csrf = new Element\Csrf('security');
 
         $submit = new Element\Submit('submit');
-        $submit->setAttribute('value', 'Enviar');
+        $submit->setAttributes(array('class' => 'btn btn-default', 'value' => 'Enviar formulário'));
 
-        $form = new Form('contact');
-        $form->add($category)
+        //$form = new Form('contact');
+        $this->add($category)
             ->add($title)
-            ->add($description)
-            ->add($photoFilename)
-            ->add($contactName)
-            ->add($contactEmail)
-            ->add($contactPhone)
-            ->add($city)
-            ->add($country)
             ->add($csrf)
             ->add($submit);
 

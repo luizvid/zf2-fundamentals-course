@@ -102,6 +102,15 @@ Ministrado pela [Code.Education]
 - Criada classe PostForm com campos da tabela listings
 - Injeção de categories através de PostFormFactory
 - Injeção de postForm ao PostController através da PostControllerFactory
+- Adicionado caminho para Post Form no menu top
 
 #####Item B
--
+- Form incluído no template post > index.phtml
+
+#####Item C
+- Adicionado PostFormFilter com validadores e filtros para formulário e PostFormFilterFactory para injeção de dependência.
+
+#####Item D
+- Controller configurado para tratar request post do formulário.
+
+#####Item E

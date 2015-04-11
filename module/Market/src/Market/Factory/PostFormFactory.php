@@ -10,10 +10,12 @@ class PostFormFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceManager)
     {
         $categories = $serviceManager->get('categories');
+        $postFormFilter = $serviceManager->get('market-post-filter');
 
         $postForm = new PostForm();
         $postForm->setCategories($categories);
         $postForm->buildForm();
+        $postForm->setInputFilter($postFormFilter);
 
         return $postForm;
     }
