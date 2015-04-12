@@ -22,11 +22,7 @@ class PostController extends AbstractActionController
 
     public function indexAction()
     {
-        //$data = $this->params()->fromPost();
-        $data = array_merge(
-            $this->params()->fromPost(),
-            $this->params()->fromFiles()
-        );
+        $data = $this->params()->fromPost();
 
         $vm = new ViewModel(array('postForm' => $this->postForm, 'data' => $data));
         $vm->setTemplate('market/post/index.phtml');

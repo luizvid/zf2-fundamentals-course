@@ -13,6 +13,10 @@ return array(
         ),
     ),
     'service_manager' => array(
+        'services' => array(
+            'date-expires' => array(5, 10, 15, 20, 25),
+            'cities' => array('STS' => 'Santos', 'SP' => 'São Paulo', 'PG' => 'Praia Grande')
+        ),
         'factories' => array(
             'market-post-form' => 'Market\Factory\PostFormFactory',
             'market-post-filter' => 'Market\Factory\PostFormFilterFactory'

@@ -2,8 +2,6 @@
 
 <?php $this->postForm->prepare(); ?>
 
-<div class="post-form">
-    <?php echo $this->form()->openTag($this->postForm); ?>
-    <?php echo $this->formCollection($this->postForm); ?>
-    <?php echo $this->form()->closeTag(); ?>
-</div>
+<?php echo $this->form()->openTag($this->postForm); ?>
+<?php echo $this->formCollection($this->postForm); ?>
+<?php echo $this->form()->closeTag(); ?>
