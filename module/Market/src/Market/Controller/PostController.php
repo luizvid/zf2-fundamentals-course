@@ -36,11 +36,11 @@ class PostController extends AbstractActionController
 
             if($this->postForm->isValid()) {
 
-                if ($this->listingsTable->addPosting($data)) {
+                //if ($this->listingsTable->addPosting($data)) {
                     $this->flashMessenger()->addMessage("Dados postados com sucesso!");
-                }
+               //}
 
-                //return $this->redirect()->toRoute('home');
+                return $this->redirect()->toRoute('home');
 
             } else {
                 $invalidView = new ViewModel();
