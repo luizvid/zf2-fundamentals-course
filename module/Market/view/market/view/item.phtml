@@ -1,4 +1,3 @@
-<h1>Market View Item</h1>
+<h1>Informações do item</h1>
 
-<h3>Item:</h3>
-<?php echo $this->itemId; ?>
+<?php echo $this->partial('market/partials/item', array('listing' => $this->listing)); ?>

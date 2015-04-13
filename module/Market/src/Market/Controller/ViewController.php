@@ -9,27 +9,33 @@
 
 namespace Market\Controller;
 
+use Market\Model\ListingsTable;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class ViewController extends AbstractActionController
 {
+    use ListingsTableTrait;
+
     public function indexAction()
     {
-        $category = $this->params()->fromRoute('category');
 
-        return new ViewModel(array('category' => $category));
+        $category = $this->params()->fromRoute('category');
+        $listingsResult = $this->listingsTable->getListingsByCategory($category);
+
+        return new ViewModel(array('category' => $category, 'listingsResult' => $listingsResult));
     }
 
     public function itemAction()
     {
         $itemId = $this->params()->fromRoute('itemId');
 
+        $listingResult = $this->listingsTable->getListingById($itemId);
         if(empty($itemId)) {
             $this->flashMessenger()->addMessage('Item não encontrado');
             return $this->redirect()->toRoute('market');
         }
 
-        return new ViewModel(array('itemId' => $itemId));
+        return new ViewModel(array('itemId' => $itemId, 'listing' => $listingResult));
     }
 }

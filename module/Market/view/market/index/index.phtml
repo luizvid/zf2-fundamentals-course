@@ -8,3 +8,5 @@
         <?php echo $this->htmlList($this->messages, false, array('class' => 'text-warning')); ?>
     </div>
 <?php endif; ?>
+
+<?php echo $this->partial('market/partials/item', array('listing' => $this->listing)); ?>

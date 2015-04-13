@@ -1,2 +1,31 @@
 <?php echo '<h1>' . $this->escapeHtml(\ucfirst($this->category)) . '</h1>'; ?>
 <hr />
+
+<table class="table table-responsive">
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Preço</th>
+        <th>Criado em</th>
+        <th>Expira em</th>
+        <th>Cidade</th>
+        <th>País</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($this->listingsResult as $listings): ?>
+        <tr style="background-color: <?php echo $this->cycle(array('#F0F0F0', '#FFF'))->next() ?>">
+            <td>
+                <a href="<?php echo $this->basePath('/market/view/item/') . $listings['listings_id']; ?>">
+                    <?php echo $this->escapeHtml($listings['title']) ?>
+                </a>
+            </td>
+            <td><?php echo $this->escapeHtml($listings['price']) ?></td>
+            <td><?php echo $this->escapeHtml($listings['date_created']) ?></td>
+            <td><?php echo $this->escapeHtml($listings['date_expires']) ?></td>
+            <td><?php echo $this->escapeHtml($listings['city']) ?></td>
+            <td><?php echo $this->escapeHtml($listings['country']) ?></td>
+        </tr>
+    <?php endforeach ?>
+    </tbody>
+</table>

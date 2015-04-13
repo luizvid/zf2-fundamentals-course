@@ -7,6 +7,8 @@ use Market\Form\PostForm;
 
 class PostController extends AbstractActionController
 {
+    use ListingsTableTrait;
+
     public $categories;
     public $postForm;
 

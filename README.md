@@ -114,3 +114,23 @@ Ministrado pela [Code.Education]
 - Controller configurado para tratar request post do formulário.
 
 #####Item E
+- Todos os campos do formulario e filtros inseridos.
+
+###Módulo 10 Ex.1
+------------
+
+######Item A
+- Criado pasta Market\src\Market\Model e classe Market\Market ListingsModel tableGateway referente a tabela listings
+
+######Item B
+- Criado adapter em config/autoload db.loca.php
+- Criada Factory de ListingsTable
+- Trait de listingsTable criada com setListingsTable
+- Factories das controladoras Index e View criadas para receberem Trait de ListingsTable
+
+######Item C
+- Criado método getListingsByCategory na ListingsTable que recebe parametro category na ViewController
+- Apresentada lista por categoria na view/index template e organizado em tabela com link para view/item/id
+
+######Item D
+-

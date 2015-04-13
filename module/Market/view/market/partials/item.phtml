@@ -1,0 +1,19 @@
+<strong><?php echo \ucfirst($listing['category']); ?></strong>
+<h2><?php echo $listing['title']; ?></h2>
+
+
+<div>
+    <img src="<?php echo $this->basePath() . $listing['photo_filename']; ?>" class="pull-right" title="<?php echo $listing['title']; ?>"/>
+    <p><strong>Custo: <?php echo $listing['price']; ?></strong></p>
+    <p><?php echo $listing['description']; ?></p>
+
+    <hr />
+    <p><strong>Criado em:</strong> <?php echo $listing['date_created']; ?></p>
+    <p><strong>Expira em:</strong> <?php echo $listing['date_expires']; ?></p>
+    <p>
+        <strong>Contato:</strong> <?php echo $listing['contact_name']; ?>
+        &lt;<?php echo $listing['contact_email']; ?>&gt;
+        <strong>Tel:</strong> <?php echo $listing['contact_phone']; ?>
+    </p>
+    <p><strong>Cidade:</strong> <?php echo $listing['city']; ?> - <?php echo $listing['country']; ?></p>
+</div>
