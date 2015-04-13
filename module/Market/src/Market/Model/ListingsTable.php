@@ -61,8 +61,17 @@ class ListingsTable extends TableGateway
         $date = new \DateTime();
         $date->add(new \DateInterval('P' . $data['date_expires'] . 'D'));
 
+        $data['date_expires'] = $date->format('Y-m-d H:i:s');
 
-        $dateExpires = $date->format('Y-m-d H:i:s');
-        \Zend\Debug\Debug::dump($dateExpires);
+        list($data['city'], $data['country']) = explode(' - ', $data['cityCode']);
+        unset($data['cityCode']);
+        unset($data['captcha']);
+        unset($data['security']);
+        unset($data['submit']);
+
+        $success = $this->insert($data);
+
+        return $success;
+
     }
 } 

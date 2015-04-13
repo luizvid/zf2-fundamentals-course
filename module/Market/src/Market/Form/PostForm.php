@@ -77,7 +77,7 @@ class PostForm extends Form
 
         $cityCode = new Element\Select('cityCode');
         $cityCode->setAttribute('class', 'form-control');
-        $cityCode->setValueOptions($this->cities);
+        $cityCode->setValueOptions(array_combine($this->cities, $this->cities));
         $cityCode->setLabel('Cidade');
 
         $deleteCode = new Element\Number('delete_code');

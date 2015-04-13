@@ -139,3 +139,11 @@ Ministrado pela [Code.Education]
 - Criado novo método em ListingsTable com retorno do último registro cadastrado de Listings.
 - Criado partials de detalhes do item e linkado ao view/item/<id>
 - Apresentado na Home o último item detalhado através da partials.
+
+######Item F
+- Dados inseridos na tabela listings.
+
+######Item G
+- Criado tableGateway de world-city-area-codes e injetado no postForm e postFormFilter.
+
+######Item H
