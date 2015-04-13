@@ -123,8 +123,8 @@ class PostFormFilter extends InputFilter
         $cityCode->getFilterChain()
             ->attach(new StripTags())
             ->attach(new StringTrim());
-        $cityCode->getValidatorChain()
-            ->attach(new InArray(array('haystack' => array_keys($this->cities))));
+        //$cityCode->getValidatorChain()
+            //->attach(new InArray(array('haystack' => array_keys($this->cities))));
 
         $deleteCode = new Input('delete_code');
         $deleteCode->setAllowEmpty(TRUE);

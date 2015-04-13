@@ -18,6 +18,7 @@ class IndexController extends AbstractActionController
 
     public function indexAction()
     {
+
         $return = array('title' => 'Bem Vindo à Online Market!');
 
         $flashMessenger = $this->flashMessenger();

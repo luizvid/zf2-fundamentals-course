@@ -11,14 +11,14 @@ class PostFormFactory implements FactoryInterface
     {
         $categories = $serviceManager->get('categories');
         $dateExpires = $serviceManager->get('date-expires');
-        $cities = $serviceManager->get('cities');
+        $cities = $serviceManager->get('area-codes-table');
 
         $postFormFilter = $serviceManager->get('market-post-filter');
 
         $postForm = new PostForm();
         $postForm->setCategories($categories);
         $postForm->setDateExpires($dateExpires);
-        $postForm->setCities($cities);
+        $postForm->setCities($cities->getCodesForFrom());
 
         $postForm->buildForm();
         $postForm->setInputFilter($postFormFilter);

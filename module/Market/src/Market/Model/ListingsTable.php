@@ -9,7 +9,9 @@
 namespace Market\Model;
 
 use Zend\Db\TableGateway\TableGateway;
-use Zend\Db\Select;
+use Zend\Db\Sql\Select;
+use Zend\Db\Sql\Expression;
+use Zend\Db\Sql\Where;
 
 class ListingsTable extends TableGateway
 {
@@ -31,11 +33,36 @@ class ListingsTable extends TableGateway
 
     public function getMostRecentListing($id = null)
     {
+
+        $subSelect = new Select();
+        $subSelect->columns(array(
+            'mostRecent' => new Expression('MAX(`listings_id`)')
+        ));
+        $subSelect->from(ListingsTable::$tableName);
+
+        //echo  $subSelect->getSqlString($this->adapter->getPlatform());
+
+        $where = new Where();
+        $where->in('listings_id', $subSelect);
+
         $select = new Select();
-        $select->from(ListingsTable::$tableName)
-            ->order('listings_id DESC')
-            ->limit(1);
+        $select->where($where)
+            ->from(ListingsTable::$tableName);
+
+        //echo  $select->getSqlString($this->adapter->getPlatform());
 
         return $this->selectWith($select)->current();
+    }
+
+    public function addPosting(array $data)
+    {
+        \Zend\Debug\Debug::dump($data);
+
+        $date = new \DateTime();
+        $date->add(new \DateInterval('P' . $data['date_expires'] . 'D'));
+
+
+        $dateExpires = $date->format('Y-m-d H:i:s');
+        \Zend\Debug\Debug::dump($dateExpires);
     }
 } 

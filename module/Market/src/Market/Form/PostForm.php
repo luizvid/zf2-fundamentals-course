@@ -106,7 +106,7 @@ class PostForm extends Form
         $price->setLabel('Preço');
 
         $dateExpires = new Element\Radio('date_expires');
-        $dateExpires->setLabel('Data de expiração');
+        $dateExpires->setLabel('Expira em (dias)');
         $dateExpires->setValueOptions(array_combine($this->dateExpires, $this->dateExpires));
 
         $csrf = new Element\Csrf('security');

@@ -130,7 +130,12 @@ Ministrado pela [Code.Education]
 
 ######Item C
 - Criado método getListingsByCategory na ListingsTable que recebe parametro category na ViewController
-- Apresentada lista por categoria na view/index template e organizado em tabela com link para view/item/id
+- Apresentada lista por categoria na view/index template e organizado em tabela com link para view/item/<id>
 
 ######Item D
--
+- Apresentado informações detalhadas em view/item/<id>.
+
+######Item E
+- Criado novo método em ListingsTable com retorno do último registro cadastrado de Listings.
+- Criado partials de detalhes do item e linkado ao view/item/<id>
+- Apresentado na Home o último item detalhado através da partials.
