@@ -56,22 +56,32 @@ class ListingsTable extends TableGateway
 
     public function addPosting(array $data)
     {
-        \Zend\Debug\Debug::dump($data);
+        //\Zend\Debug\Debug::dump($data);
 
         $date = new \DateTime();
         $date->add(new \DateInterval('P' . $data['date_expires'] . 'D'));
 
         $data['date_expires'] = $date->format('Y-m-d H:i:s');
 
-        list($data['city'], $data['country']) = explode(' - ', $data['cityCode']);
+        $data['city'] = $data['cityCode']['city'];
+        $data['country'] = $data['cityCode']['ISO2'];
+
         unset($data['cityCode']);
         unset($data['captcha']);
         unset($data['security']);
         unset($data['submit']);
 
+        //\Zend\Debug\Debug::dump($data);
         $success = $this->insert($data);
 
         return $success;
 
+    }
+
+    public function deleteByDeleteCode($id, $deleteCode)
+    {
+        $result = $this->delete(array('listings_id' => $id, 'delete_code' => $deleteCode));
+
+        return $result;
     }
 } 

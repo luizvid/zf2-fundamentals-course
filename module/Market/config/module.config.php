@@ -7,6 +7,7 @@ return array(
             'market-post-controller' => 'Market\Factory\PostControllerFactory',
             'market-index-controller' => 'Market\Factory\IndexControllerFactory',
             'market-view-controller' => 'Market\Factory\ViewControllerFactory',
+            'market-delete-controller' => 'Market\Factory\DeleteControllerFactory',
         ),
         'aliases' => array(
             'alt' => 'market-view-controller',
@@ -20,7 +21,9 @@ return array(
             'market-post-form' => 'Market\Factory\PostFormFactory',
             'market-post-filter' => 'Market\Factory\PostFormFilterFactory',
             'listings-table' => 'Market\Factory\ListingsTableFactory',
-            'area-codes-table' => 'Market\Factory\WorldCityAreaCodesTableFactory'
+            'area-codes-table' => 'Market\Factory\WorldCityAreaCodesTableFactory',
+            'market-delete-form' => 'Market\Factory\DeleteFormFactory',
+            'market-delete-filter' => 'Market\Factory\DeleteFormFilterFactory',
         )
     ),
     'router' => array(
@@ -96,6 +99,16 @@ return array(
                             'route'    => '/post[/]',
                             'defaults' => array(
                                 'controller'    => 'market-post-controller',
+                                'action'        => 'index'
+                            )
+                        )
+                    ),
+                    'delete' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/delete[/]',
+                            'defaults' => array(
+                                'controller'    => 'market-delete-controller',
                                 'action'        => 'index'
                             )
                         )

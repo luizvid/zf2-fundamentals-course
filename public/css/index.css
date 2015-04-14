@@ -1,4 +1,5 @@
 
-#post-form > label {
+#post-form > label,
+#delete-form > label {
     display: block;
 }

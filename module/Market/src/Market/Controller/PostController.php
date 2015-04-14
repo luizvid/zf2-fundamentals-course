@@ -36,9 +36,15 @@ class PostController extends AbstractActionController
 
             if($this->postForm->isValid()) {
 
-                //if ($this->listingsTable->addPosting($data)) {
-                    $this->flashMessenger()->addMessage("Dados postados com sucesso!");
-               //}
+                if (isset($data['cityCode'])) {
+                    $data['cityCode'] = $this->worldCityAreaCodesTable->getCodeById($data['cityCode']);
+                }
+
+                if ($this->listingsTable->addPosting($data)) {
+                    $this->flashMessenger()->addMessage("Dados postados com sucesso.");
+                } else {
+                    $this->flashMessenger()->addMessage("Houve um problema ao inserir os dados do formulário.");
+                }
 
                 return $this->redirect()->toRoute('home');
 

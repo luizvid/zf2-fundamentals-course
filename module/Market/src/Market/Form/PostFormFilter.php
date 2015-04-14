@@ -108,7 +108,6 @@ class PostFormFilter extends InputFilter
         $contactEmail->getValidatorChain()
             ->attachByName('EmailAddress');
 
-        /* TODO: testar Regex de contato */
         $contactPhone = new Input('contact_phone');
         $contactPhone->setAllowEmpty(TRUE);
         $contactPhone->getFilterChain()
@@ -124,7 +123,7 @@ class PostFormFilter extends InputFilter
             ->attach(new StripTags())
             ->attach(new StringTrim());
         $cityCode->getValidatorChain()
-            ->attach(new InArray(array('haystack' => $this->cities)));
+            ->attach(new InArray(array('haystack' => array_keys($this->cities))));
 
         $deleteCode = new Input('delete_code');
         $deleteCode->setAllowEmpty(TRUE);

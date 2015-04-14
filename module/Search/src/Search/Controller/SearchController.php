@@ -55,7 +55,7 @@ class SearchController extends AbstractActionController
     			$validData = $this->searchFormFilter->getValues();
 
 				// save searching to database and deal with results
-				$results = $this->listingsTable->search($validData); 
+				$results = $this->listingsTable->search($validData);
 				if ($results) {
 					$goHome = FALSE;
 				} else {
@@ -66,7 +66,7 @@ class SearchController extends AbstractActionController
     	}
 		if ($goHome) {
 			return $this->redirect()->toRoute('search-home');
-		} else { 	
+		} else {
     		return new ViewModel(array('categories' => $this->categories, 
     								   'shortList' => $results));
 		}

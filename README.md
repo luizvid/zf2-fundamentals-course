@@ -147,3 +147,5 @@ Ministrado pela [Code.Education]
 - Criado tableGateway de world-city-area-codes e injetado no postForm e postFormFilter.
 
 ######Item H
+- Módulo de Search habilitado.
+- Formulario para deleção de post criado.
