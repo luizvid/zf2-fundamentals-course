@@ -1,6 +1,8 @@
 <?php
 namespace Market\Controller;
 
+use Application\Provider\FileMailProvider;
+use Zend\Mail\Message;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Provider\ContainerProvider;
@@ -12,6 +14,7 @@ class PostController extends AbstractActionController
     use WorldCityAreaCodesTableTrait;
     use ContainerProvider;
     use LoggerProvider;
+    use FileMailProvider;
 
     public $categories;
     public $postForm;
@@ -44,6 +47,8 @@ class PostController extends AbstractActionController
 
                 if ($this->listingsTable->addPosting($data)) {
                     $this->flashMessenger()->addMessage("Dados postados com sucesso.");
+
+                    $this->sendNotification($data['delete_code']);
 
                     $this->logger->info('Post inserido com sucesso');
                 } else {
@@ -86,5 +91,19 @@ class PostController extends AbstractActionController
         } else {
             $this->container->invalidCount = 1;
         }
+    }
+
+    public function sendNotification($deleteCode = null)
+    {
+        $message = new Message();
+        $mailInfo = $this->getServiceLocator()->get('application-mail-info');
+
+        $message->addTo($mailInfo['to'])
+            ->addFrom($mailInfo['from'])
+            ->setSubject('Online Market Auto Notification')
+            ->setBody('Notificação de inclusão de Post Form com código ' . $deleteCode . ' de deleção.')
+            ->setEncoding('UTF-8');
+
+        $this->fileMail->send($message);
     }
 }

@@ -51,10 +51,16 @@ class Module
                 'application-session' => 'Zend\Session\Container',
             ),
             'factories' => array(
-                'application-logger' => 'Application\Factory\LoggerFactory'
+                'application-logger' => 'Application\Factory\LoggerFactory',
+                'application-file-mail' => 'Application\Factory\FileMailFactory'
             ),
             'services' => array(
-                'application-log-file' => __DIR__ . '/../../data/logs/post.log'
+                'application-log-file' => __DIR__ . '/../../data/logs/post.log',
+                'application-mail-info' => array(
+                    'to' => 'luizvid@gmail.com',
+                    'from' => 'luizvid@gmail.com',
+                    'email_dir' => __DIR__ . '/../../data/logs'
+                )
             )
         );
     }

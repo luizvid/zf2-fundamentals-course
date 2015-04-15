@@ -164,3 +164,10 @@ Ministrado pela [Code.Education]
 - Injetado Zend\Log com configuracoes de Writer em PostController
 - Criado log que registra quando Post foi inserido com sucesso ou inválido.
 
+###Módulo 11 Ex.3
+------------
+
+####Zend\Mail
+- Injetado FileMail Transport com configuracoes de FileOptions em PostController
+- Criado file mail em /data/logs com código de deleção de novo post inserido.
+
