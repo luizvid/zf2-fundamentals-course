@@ -48,7 +48,13 @@ class Module
         return array(
             'invokables' => array(
                 'SampleService' => 'Application\Service\SampleService',
-                'application-session' => 'Zend\Session\Container'
+                'application-session' => 'Zend\Session\Container',
+            ),
+            'factories' => array(
+                'application-logger' => 'Application\Factory\LoggerFactory'
+            ),
+            'services' => array(
+                'application-log-file' => __DIR__ . '/../../data/logs/post.log'
             )
         );
     }

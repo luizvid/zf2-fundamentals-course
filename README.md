@@ -157,3 +157,10 @@ Ministrado pela [Code.Education]
 - Injetado session/container em PostController
 - Criado sessão que verifica quantidade de tentativas de cadastro de Post.
 
+###Módulo 11 Ex.2
+------------
+
+####Zend\Log
+- Injetado Zend\Log com configuracoes de Writer em PostController
+- Criado log que registra quando Post foi inserido com sucesso ou inválido.
+

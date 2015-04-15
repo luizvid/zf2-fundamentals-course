@@ -16,6 +16,7 @@ class PostControllerFactory implements FactoryInterface
         $listingsTable = $serviceManager->get('listings-table');
         $cities = $serviceManager->get('area-codes-table');
         $session = $serviceManager->get('application-session');
+        $logger = $serviceManager->get('application-logger');
 
         $postController = new PostController();
         $postController->setCategories($categories);
@@ -23,6 +24,7 @@ class PostControllerFactory implements FactoryInterface
         $postController->setListingsTable($listingsTable);
         $postController->setWorldCityAreaCodesTable($cities);
         $postController->setContainer($session);
+        $postController->setLogger($logger);
 
         return $postController;
     }

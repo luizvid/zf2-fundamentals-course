@@ -4,12 +4,14 @@ namespace Market\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Application\Provider\ContainerProvider;
+use Application\Provider\LoggerProvider;
 
 class PostController extends AbstractActionController
 {
     use ListingsTableTrait;
     use WorldCityAreaCodesTableTrait;
     use ContainerProvider;
+    use LoggerProvider;
 
     public $categories;
     public $postForm;
@@ -42,6 +44,8 @@ class PostController extends AbstractActionController
 
                 if ($this->listingsTable->addPosting($data)) {
                     $this->flashMessenger()->addMessage("Dados postados com sucesso.");
+
+                    $this->logger->info('Post inserido com sucesso');
                 } else {
                     $this->flashMessenger()->addMessage("Houve um problema ao inserir os dados do formulário.");
                 }
@@ -49,6 +53,8 @@ class PostController extends AbstractActionController
                 return $this->redirect()->toRoute('home');
 
             } else {
+                $this->logger->alert('Form Post inválido');
+
                 if ($this->invalidCount()) {
                     $this->flashMessenger()->addMessage("Você ultrapassou o limite de tentativas. Tente mais tarde.");
 
