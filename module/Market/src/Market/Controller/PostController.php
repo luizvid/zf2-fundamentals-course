@@ -1,15 +1,15 @@
 <?php
 namespace Market\Controller;
 
-use Market\Model\WorldCityAreaCodesTable;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Market\Form\PostForm;
+use Application\Provider\ContainerProvider;
 
 class PostController extends AbstractActionController
 {
     use ListingsTableTrait;
     use WorldCityAreaCodesTableTrait;
+    use ContainerProvider;
 
     public $categories;
     public $postForm;
@@ -49,6 +49,12 @@ class PostController extends AbstractActionController
                 return $this->redirect()->toRoute('home');
 
             } else {
+                if ($this->invalidCount()) {
+                    $this->flashMessenger()->addMessage("Você ultrapassou o limite de tentativas. Tente mais tarde.");
+
+                    return $this->redirect()->toRoute('home');
+                }
+
                 $invalidView = new ViewModel();
                 $invalidView->setTemplate('market/post/invalid.phtml');
                 $invalidView->addChild($vm, 'main');
@@ -58,5 +64,21 @@ class PostController extends AbstractActionController
         }
 
         return $vm;
+    }
+
+    public function invalidCount()
+    {
+        if (isset($this->container->invalidCount)) {
+            $this->container->invalidCount++;
+
+            if ($this->container->invalidCount >= 3) {
+                $this->container->invalidCount = 0;
+                return TRUE;
+            }
+
+            return FALSE;
+        } else {
+            $this->container->invalidCount = 1;
+        }
     }
 }

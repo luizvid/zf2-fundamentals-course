@@ -149,3 +149,11 @@ Ministrado pela [Code.Education]
 ######Item H
 - Módulo de Search habilitado.
 - Formulario para deleção de post criado.
+
+###Módulo 11 Ex.1
+------------
+
+####Zend\Session
+- Injetado session/container em PostController
+- Criado sessão que verifica quantidade de tentativas de cadastro de Post.
+

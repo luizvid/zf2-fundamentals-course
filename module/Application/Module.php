@@ -47,7 +47,8 @@ class Module
     {
         return array(
             'invokables' => array(
-                'SampleService' => 'Application\Service\SampleService'
+                'SampleService' => 'Application\Service\SampleService',
+                'application-session' => 'Zend\Session\Container'
             )
         );
     }
